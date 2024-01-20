@@ -16,7 +16,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             height: 100vh;
         }
 
@@ -25,15 +24,38 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: 300px;
+            display: flex;
+            flex-direction: row;
+            width: 40%;
         }
 
-        .signup-header {
-            background-color: #e74c3c;
-            color: #fff;
-            text-align: center;
+        .left-section {
+            flex: 6;
             padding: 20px;
+            box-sizing: border-box;
+            background-color: #27ae60;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .right-section {
+            flex: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .greeting-line {
             font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .site-description {
+            font-size: 16px;
+            text-align: center;
         }
 
         .signup-form {
@@ -80,49 +102,45 @@
             margin-top: 10px;
             color: #333;
         }
-
-        .greeting-line {
-            color: #000000;
-            font-size: 20px;
-            margin-bottom: 20px;
-            background-color: #27ae60;
-            padding: 10px;
-        }
     </style>
 </head>
 <body>
 
-<div class="greeting-line">
-    Welcome to Project Pilot - Signup
-</div>
-
 <div class="signup-container">
-    <div class="signup-header">
-        Signup
+    <div class="left-section">
+        <div class="greeting-line">
+            Welcome to Project Pilot
+        </div>
+        <div class="site-description">
+            <p>This is a fantastic platform designed for enthusiasts like you! Join Project Pilot to explore, collaborate, and elevate your experience in the world of technology and computer science.</p>
+        </div>
     </div>
-    <div class="signup-form">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+    <div class="right-section">
+        <div class="signup-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button class="signup-btn" type="submit">Signup</button>
+            <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
         </div>
-        <div class="form-group">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        </div>
-        <button class="signup-btn" type="submit">Signup</button>
-        <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
     </div>
 </div>
 
