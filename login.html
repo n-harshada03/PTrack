@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Project Pilot</title>
+    <style>
+        body {
+            background-image: url("SES-Computer-Science-1900862161.avif"); /* Replace 'login-background.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Added to center the greeting line */
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Add transparency to make the form readable */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .login-header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        .login-form {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .greeting-line {
+            color: #000000;
+            font-size: 20px;
+            margin-bottom: 20px;
+            background-color: #27ae60;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="greeting-line">
+    Welcome to Project Pilot - Login
+</div>
+
+<div class="login-container">
+    <div class="login-header">
+        Login
+    </div>
+    <div class="login-form">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button class="login-btn" type="submit">Login</button>
+        <p class="signup-link">Don't have an account? <a href="signup.html">Signup</a></p>
+    </div>
+</div>
+
+</body>
+</html>
