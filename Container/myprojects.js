@@ -1,5 +1,37 @@
-const projectList = document.querySelector('.project-list');
+import './shared.js';
+// This assumes that shared.js is in the same directory as myprojects.js
+// Adjust the path accordingly if the file is in a different location
+
+// Function to open the project form
+function openProjectForm() {
+    const projectForm = document.querySelector('#project-form');
+    projectForm.style.display = 'block';
+    projectForm.style.position = 'fixed';
+    projectForm.style.top = '100px'; // Adjust as needed
+    projectForm.style.right = '100px'; // Adjust as needed
+    projectForm.style.padding = '50px'; // Add padding
+}
+
+// Function to close the project form
+function closeProjectForm() {
+    const projectForm = document.querySelector('#project-form');
+    projectForm.style.display = 'none';
+}
+
+// Add event listener to add project button
 const addProjectButton = document.querySelector('#add-project-button');
+
+addProjectButton.addEventListener('click', () => {
+    openProjectForm();
+});
+
+// Your other myprojects.js logic goes here
+
+
+
+
+const projectList = document.querySelector('.project-list');
+// const addProjectButton = document.querySelector('#add-project-button');
 const projectForm = document.querySelector('#project-form');
 const addProjectForm = document.querySelector('#add-project-form');
 const taskList = document.getElementById('task-list');
