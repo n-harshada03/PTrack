@@ -3,9 +3,25 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="myprojects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn" title="Menu"></i>
+      <i class="fas fa-times" id="cancel" title="Close"></i>
+    </label>
+    <div class="sidebar">
+      <header>Menu</header>
+      <a href="#" class="active"><i class="fas fa-qrcode"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-link"></i><span>Shortcuts</span> </a>
+      <a href="#"><i class="fas fa-stream"></i><span>Overview</span>  </a>
+      <a href="#"><i class="far fa-question-circle"></i><span>About</span> </a>
+      <a href="#"><i class="fas fa-key"></i><span>Password</span>  </a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i><span>Signout</span> </a>
+    </div>
     <div class="header">
         <div class="header-left">
             <h1>ProjectPilot</h1>
@@ -14,13 +30,13 @@
             <!-- Add this input element to your HTML for the search box -->
             <div id="search-projects">
                 <input type="text" id="search-input" placeholder="Search projects" oninput="filterProjects()">
+            </div>
         </div>
-
             <button id="add-project-button">Add Project</button>
         </div>
     </div>
 
-    <div>
+    <div class="my-projects">
         <h2>My Projects</h2>
     </div>
 
