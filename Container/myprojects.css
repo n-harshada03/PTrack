@@ -15,8 +15,8 @@ body {
 .header-left {
   flex: 1;
   padding-left: 70px;
-  font-family: Arial, sans-serif;
-  color: white;
+  font-family:Arial, sans-serif;
+  color:white;
 }
 
 .header-right {
