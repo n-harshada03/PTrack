@@ -1,4 +1,3 @@
-import './shared.js';
 // This assumes that shared.js is in the same directory as myprojects.js
 // Adjust the path accordingly if the file is in a different location
 
@@ -97,7 +96,7 @@ addProjectForm.addEventListener('submit', (event) => {
 
     // Get form data
     const projectTitle = document.querySelector('#project-title').value;
-    const projectDescription = document.querySelector('#project-description').value;
+    // const projectDescription = document.querySelector('#project-description').value;
     const projectStartDate = document.querySelector('#project-Startdate').value;
     const numMembers = document.querySelector('#num-members').value;
     const projectGuide = document.querySelector('#project-guide').value;
@@ -107,7 +106,7 @@ addProjectForm.addEventListener('submit', (event) => {
     // Create a new project object
     const newProject = {
         title: projectTitle,
-        description: projectDescription,
+        // description: projectDescription,
         members: numMembers,
         progress: 0,
         startDate: projectStartDate,
