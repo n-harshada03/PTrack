@@ -22,7 +22,7 @@ body {
     display: flex;
     align-items: center;
 }
-
+.button-blue,
 .button-green,
 .button-red,
 .link-blue {
@@ -33,7 +33,10 @@ body {
     margin-right: 10px;
     border-radius: 5px;
 }
-
+.button-blue {
+  background-color: #475dcd; /* Blue button */
+  color: white;
+}
 .button-green {
     background-color: #4CAF50; /* Green button */
     color: white;

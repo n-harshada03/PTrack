@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="myprojects.css">
+    <link rel="stylesheet" type="text/css" href="/Users/yogesh/Documents/GitHub/PTrack/Container/Teacher/divisions.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
@@ -15,10 +15,12 @@
     </label>
     <div class="sidebar">
       <header>Menu</header>
-      <a href="myprojects.html" class="active"><i class="fas fa-qrcode"></i><span>Dashboard</span></a>
-      <a href="about.html"><i class="far fa-question-circle"></i><span>About</span> </a>
-      <a href="signup.html"><i class="fas fa-key"></i><span>Password</span>  </a>
-      <a href="login.html"><i class="fas fa-sign-out-alt"></i><span>Signout</span> </a>
+      <a href="#" class="active"><i class="fas fa-qrcode"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-link"></i><span>Shortcuts</span> </a>
+      <a href="#"><i class="fas fa-stream"></i><span>Overview</span>  </a>
+      <a href="#"><i class="far fa-question-circle"></i><span>About</span> </a>
+      <a href="#"><i class="fas fa-key"></i><span>Password</span>  </a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i><span>Signout</span> </a>
     </div>
     <div class="header">
         <div class="header-left">
@@ -26,19 +28,19 @@
         </div>
         <div class="header-right">
             <!-- Add this input element to your HTML for the search box -->
-            <div id="search-projects">
-                <input type="text" id="search-input" placeholder="Search projects" oninput="filterProjects()">
+            <div id="search-divisions">
+                <input type="text" id="search-input" placeholder="Search Divisions" oninput="filterDivisions()">
             </div>
         </div>
-            <button id="add-project-button">Add Project</button>
+            <button id="add-division-button">Add Division</button>
         </div>
     </div>
 
-    <div class="my-projects">
-        <h2>My Projects</h2>
+    <div class="my-divisions">
+        <h2>My Divisions</h2>
     </div>
 
-    <div class="project-list">
+    <div class="division-list">
         <!-- projects will be added here by the JavaScript code -->
     </div>
 
@@ -101,7 +103,7 @@
         </form>
     </div>
 
-    <script src="myprojects.js"></script>
+    <script src="divisions.js"></script>
 </body>
 
 </html>
