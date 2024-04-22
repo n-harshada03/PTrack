@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
         </div>
         <div class="header-right">
             <button id="generate-ff180" class="button-blue">Generate ff180</button>
-            <button id="add-project-button" class="button-green">Add Project</button>
+            <button id="add-project-button" class="button-green">Edit Project</button>
             <button id="delete-project-button" class="button-red">Delete Project</button>
         </div>
     </div>
@@ -35,8 +36,8 @@
     <div class="view-container">
         <div class="project-description">
             <div class="description-section">
-                <h2 style="color:#1a681c">Description</h2>
-                <p>This is the project description paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non veritatis sed omnis corporis ipsam possimus! Corrupti, repellendus natus? Maiores dolor voluptatum nostrum iure consequatur accusamus corrupti commodi ad reiciendis incidunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione ab recusandae molestiae error minus voluptatem consectetur, exercitationem quos quas commodi! Repudiandae fuga sint quo quisquam at ipsa incidunt placeat cumque?</p>
+                <h2 id="project-title" style="color:#1a681c"></h2> <!-- Placeholder for project title -->
+                <p id="project-description"></p> <!-- Placeholder for project description -->
             </div>
             <br>
             <hr>
@@ -44,12 +45,8 @@
             <div class="recent-activity-section">
               <br>
                 <h2 style="color:#1a681c">Recent Activity</h2>
-                <div >
-                    <ul>
-                        <li class="activity-box">Activity 1</li>
-                        <li class="activity-box">Activity 2</li>
-                        <li class="activity-box">Activity 3</li>
-                    </ul>
+                <div id="activity-list">
+                    <!-- Activities will be added here dynamically -->
                 </div>
                 <a href="#" class="link-blue">See more</a>
                 <br>
@@ -58,37 +55,24 @@
         
         <div class="project-status">
             <div class="status-icons">
-                <div class="status-icon" style="background: rgba(158, 158, 190, 0.8);"></div>
-              
-                <div class="status-icon" style="background: rgba(3, 47, 8, 0.8);"></div>
-                <div class="status-icon" style="background: rgba(72, 77, 5, 0.8);"></div>
-                <div class="status-icon" style="background: rgba(5, 5, 82, 0.8);"></div>
-                <div class="status-icon" style="background: rgba(54, 4, 38, 0.8);"></div>
-                <div class="status-icon" style="background: rgba(78, 40, 6, 0.8);"></div>
-                <div class="status-icon" style="background: rgba(3, 38, 54, 0.8);"></div>
+                <!-- Icons will be added here dynamically --> 
             </div>
             <div class="status-info">
-                <div class="status-node">Start Date: January 1, 2024</div>
-              
-                <div class="status-node">DeadLine: February 1, 2024</div>
-                <div class="status-node">Leader: John Doe</div>
-                <div class="status-node">Milestone: 1 of 10 Completed</div>
-                <div class="status-node">Tasks: 5 of 10 Completed</div>
-                <div class="status-node">Progress: 50%</div>
+                <div class="status-node" id="start-date"></div> <!-- Placeholder for start date -->
+                <div class="status-node" id="deadline"></div> <!-- Placeholder for deadline (if available) -->
+                <div class="status-node" id="project-guide"></div> <!-- Placeholder for project guide -->
+                <div class="status-node" id="project-leader"></div> <!-- Placeholder for project leader -->
+                <div class="status-node" id="task-progress"></div> <!-- Placeholder for task progress -->
+                <div class="status-node" id="project-progress"></div> <!-- Placeholder for project progress -->
                 <div class="status-node">Members
-                    <div style="margin-top:20px; margin-left: 20px;">
-                    <ol type="1">
-        
-                        <li>Yogesh Lale</li>
-                        <li>Mitali Patil</li>
-                        <li>Apurva Kota</li>
-                        <li>Parth Kulkarni</li>
+                    <ol id="member-list">
+                        <!-- Members will be added here dynamically -->
                     </ol>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="project-form" style="display: none;">
         <h2>New Project</h2>
         <form id="add-project-form">
@@ -147,11 +131,6 @@
             <button type="submit">Add Project</button>
         </form>
     </div>
-
-<script>const generateButton = document.getElementById("generate-ff180");
-    generateButton.addEventListener("click", function() {
-        window.location.href = "ff180.html";
-    });</script>
-    <script src="viewprojects.js"></script>
+    <script src="viewprojects.js"></script> 
 </body>
 </html>
