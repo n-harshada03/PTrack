@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Viewer</title>
+    <link rel="stylesheet" type="text/css" href="viewprojects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn" title="Menu"></i>
+      <i class="fas fa-times" id="cancel" title="Close"></i>
+    </label>
+    <div class="sidebar">
+      <header>Menu</header>
+      <a href="viewprojects.html" class="active"><i class="fas fa-qrcode"></i><span>Dashboard</span></a>
+      <a href="about.html"><i class="far fa-question-circle"></i><span>About</span> </a>
+      <a href="signup.html"><i class="fas fa-key"></i><span>Password</span>  </a>
+      <a href="login.html"><i class="fas fa-sign-out-alt"></i><span>Signout</span> </a>
+    </div>
+    <div class="header">
+        <div class="header-left">
+            <h1>ProjectPilot</h1>
+        </div>
+        <div class="header-right">
+            <button id="generate-ff180" class="button-blue">Generate ff180</button>
+            <button id="add-project-button" class="button-green">Edit Project</button>
+            <button id="delete-project-button" class="button-red">Delete Project</button>
+        </div>
+    </div>
+
+    <div class="view-container">
+        <div class="project-description">
+            <div class="description-section">
+                <h2 id="project-title" style="color:#1a681c"></h2> <!-- Placeholder for project title -->
+                <p id="project-description"></p> <!-- Placeholder for project description -->
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="recent-activity-section">
+              <br>
+                <h2 style="color:#1a681c">Recent Activity</h2>
+                <div id="activity-list">
+                    <!-- Activities will be added here dynamically -->
+                </div>
+                <a href="#" class="link-blue">See more</a>
+                <br>
+            </div>
+        </div>
+        
+        <div class="project-status">
+            <div class="status-icons">
+                <!-- Icons will be added here dynamically --> 
+            </div>
+            <div class="status-info">
+                <div class="status-node" id="start-date"></div> <!-- Placeholder for start date -->
+                <div class="status-node" id="deadline"></div> <!-- Placeholder for deadline (if available) -->
+                <div class="status-node" id="project-guide"></div> <!-- Placeholder for project guide -->
+                <div class="status-node" id="project-leader"></div> <!-- Placeholder for project leader -->
+                <div class="status-node" id="task-progress"></div> <!-- Placeholder for task progress -->
+                <div class="status-node" id="project-progress"></div> <!-- Placeholder for project progress -->
+                <div class="status-node">Members
+                    <ol id="member-list">
+                        <!-- Members will be added here dynamically -->
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-form" style="display: none;">
+        <h2>New Project</h2>
+        <form id="add-project-form">
+            <label for="project-title">Project Title:</label>
+            <input type="text" id="project-title" name="project-title"><br>
+
+            <label for="project-description">Description:</label>
+            <textarea id="project-description" name="project-description"></textarea><br>
+
+            <label for="project-Startdate">Start Date:</label>
+            <input type="date" id="project-Startdate" name="project-Startdate"><br><br>
+
+            <!-- New container for the number of members label and dropdown list -->
+            <div class="num-members-container">
+                <label for="num-members">Number of Members:</label>
+                <select id="num-members" name="num-members">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div><br><br>
+
+            <!-- New label and input box to add members -->
+            <label for="add-members">Add Members:</label>
+            <input type="text" id="add-members" name="add-members">
+            <!-- + button with the addButton class -->
+            <button type="button" class="addButton" onclick="addMember()">+</button><br><br><br>
+
+            <!-- New section for Project Guide and Project Leader -->
+            <label for="project-guide">Project Guide:</label>
+            <input type="text" id="project-guide" name="project-guide"><br>
+
+            <label for="project-leader">Project Leader:</label>
+            <input type="text" id="project-leader" name="project-leader"><br>
+
+            <!-- New section for adding project tasks -->
+            <h3>Add Project Tasks</h3>
+
+            <!-- Task container for task input and + button -->
+            <div class="task-container">
+                <label for="add-task">Task:</label>
+                <input type="text" id="add-task" name="add-task">
+                <button type="button" class="addButton" onclick="addTask()">+</button>
+            </div>
+
+            <!-- Task list to display added tasks -->
+            <ul id="task-list"></ul>
+
+            <button type="submit">Add Project</button>
+        </form>
+    </div>
+    <script src="viewprojects.js"></script> 
+</body>
+</html>
