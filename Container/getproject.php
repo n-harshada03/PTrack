@@ -13,9 +13,8 @@ if (isset($_GET['id'])) {
 
     if ($result->num_rows > 0) {
         $project = $result->fetch_assoc();
-
-        // Convert tasks string to array (assuming comma-separated tasks)
-        $project['tasks'] = explode(',', $project['tasks']);
+        // Convert tasks JSON string to array
+        $project['tasks'] = json_decode($project['tasks'], true);
 
         // Add sample activities for demonstration
         $project['activities'] = array('Activity 1', 'Activity 2', 'Activity 3'); // Replace with actual activity data
@@ -27,13 +26,15 @@ if (isset($_GET['id'])) {
 
     $stmt->close();
 } else {
-    // If no ID is provided, return all projects (similar to the original code)
+    // If no ID is provided, return all projects
     $sql = "SELECT * FROM projects";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $projects = array();
         while($row = $result->fetch_assoc()) {
+            // Convert tasks JSON string to array
+            $row['tasks'] = json_decode($row['tasks'], true);
             $projects[] = $row;
         }
         echo json_encode($projects);

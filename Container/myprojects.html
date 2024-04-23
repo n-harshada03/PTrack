@@ -56,28 +56,24 @@
             <label for="project-Startdate">Start Date:</label>
             <input type="date" id="project-Startdate" name="project-Startdate"><br><br>
 
-            <!-- New container for the number of members label and dropdown list -->
-            <div class="num-members-container">
-                <label for="num-members">Number of Members:</label>
-                <select id="num-members" name="num-members">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div><br><br>
-
-            <!-- New label and input box to add members -->
-            <label for="add-members">Add Members:</label>
-            <input type="text" id="add-members" name="add-members">
-            <!-- + button with the addButton class -->
-            <button type="button" class="addButton" onclick="addMember()">+</button><br><br><br>
+            <!-- New container for adding members -->
+            <div class="member-container">
+                <label for="member1">Member 1:</label>
+                <input type="text" id="member1" name="member1"><br>
+    
+                <label for="member2">Member 2:</label>
+                <input type="text" id="member2" name="member2"><br>
+    
+                <label for="member3">Member 3:</label>
+                <input type="text" id="member3" name="member3"><br>
+    
+                <label for="member4">Member 4:</label>
+                <input type="text" id="member4" name="member4"><br>
+    
+                <label for="member5">Member 5:</label>
+                <input type="text" id="member5" name="member5"><br>
+            </div>
+    
 
             <!-- New section for Project Guide and Project Leader -->
             <label for="project-guide">Project Guide:</label>
@@ -99,9 +95,13 @@
             <!-- Task list to display added tasks -->
             <ul id="task-list"></ul>
 
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline" name="deadline"><br><br>
+
             <button type="submit">Add Project</button>
         </form>
     </div>
+    <div class="overlay"></div>
 
     <script src="myprojects.js"></script>
 </body>
