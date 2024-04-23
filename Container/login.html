@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page - Project Pilot</title>
  
+    <!-- Your CSS styles -->
     <style>
         body {
             background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
@@ -124,27 +125,22 @@
 
     <div class="right-section">
         <div class="login-form">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-            <button id="login-button" class="login-btn" type="button">Login</button>
+            <form method="post" action="login.php">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button class="login-btn" type="submit">Login</button>
+            </form>
             <p class="signup-link">Don't have an account? <a href="signup.html">Signup</a></p>
-            <p class="signup-link"> <a href="signup.html">Forgot password?</a></p>
+            <p class="signup-link"> <a href="forgot_password.html">Forgot password?</a></p>
         </div>
     </div>
 </div>
-
-<script>
-  const loginButton = document.getElementById("login-button");
-  loginButton.addEventListener("click", function() {
-    window.location.href = "myprojects.html";
-  });
-</script>
 
 </body>
 </html>
