@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Registration & Progress Review Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sub-header {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .left-align {
+            text-align: left;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+
+        .col-span-2 {
+            colspan: 2;
+        }
+
+        .col-span-3 {
+            colspan: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Vishwakarma Institute of Technology<br>
+        Issue 01: Rev No. 00: Dt. 01/08/22
+    </div>
+    <div class="sub-header">
+        Title: Project Registration & Progress Review Form &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FF No. 180
+    </div>
+    <table id="projectForm">
+        <!-- Your table structure -->
+    </table>
+
+    <script>
+        // JavaScript code to fetch data from the database and populate the form fields
+        window.onload = function () {
+            fetch('getData.php')
+            .then(response => response.json())
+            .then(data => fillForm(data))
+            .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function fillForm(data) {
+            // Assuming data is fetched in the correct format
+            const project = data.project; // Assuming the fetched data is structured as an object with a 'project' key
+            
+            // Populating the form fields
+            document.getElementById('projectForm').innerHTML = `
+                <tr>
+                    <th class="left-align">Project Title</th>
+                    <td class="left-align" colspan="3">${project.title}</td>
+                </tr>
+                <tr>
+                    <th class="left-align">Start Date</th>
+                    <td class="left-align">${project.start_date}</td>
+                    <th class="left-align">Deadline</th>
+                    <td class="left-align">${project.deadline}</td>
+                </tr>
+                <tr>
+                    <th class="left-align">Project Guide</th>
+                    <td class="left-align" colspan="3">${project.guide}</td>
+                </tr>
+                <tr>
+                    <th class="left-align">Project Leader</th>
+                    <td class="left-align" colspan="3">${project.leader}</td>
+                </tr>
+                <tr>
+                    <th class="left-align">Project Description</th>
+                    <td class="left-align" colspan="3">${project.description}</td>
+                </tr>
+                <tr>
+                    <th class="left-align">Project Progress</th>
+                    <td class="left-align" colspan="3">${project.progress}%</td>
+                </tr>
+                <tr>
+                    <th class="left-align">Project Members</th>
+                    <td class="left-align">${project.member1}</td>
+                    <td class="left-align">${project.member2}</td>
+                    <td class="left-align">${project.member3}</td>
+                </tr>
+                <tr>
+                    <td class="left-align">${project.member4}</td>
+                    <td class="left-align">${project.member5}</td>
+                    <td class="col-span-2" colspan="2"></td>
+                </tr>
+                <tr>
+                    <th class="left-align">Tasks</th>
+                    <td class="left-align" colspan="3">${project.tasks}</td>
+                </tr>
+            `;
+        }
+    </script>
+</body>
+</html>

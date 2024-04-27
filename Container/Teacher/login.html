@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Project Pilot</title>
+ 
+    <!-- Your CSS styles -->
+    <style>
+        body {
+            background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            width: 40%;
+        }
+
+        .left-section {
+            flex: 6;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #3498db;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .right-section {
+            flex: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .greeting-line1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .greeting-line2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .site-description {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .login-form {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            border-radius: 50px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="left-section">
+        <div class="greeting-line1">Welcome to</div>
+        <div class="greeting-line2">Project Pilot</div>
+        <div class="site-description">
+            <p>Project storing website designed to streamline the organisation and management of your digital projects.</p>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="login-form">
+            <form method="post" action="login.php">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button class="login-btn" type="submit">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Signup</a></p>
+            <p class="signup-link"> <a href="forgot_password.html">Forgot password?</a></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

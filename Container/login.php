@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root"; // Your MySQL username
 $password = ""; // Your MySQL password
@@ -18,26 +20,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prepare a SQL statement to check if the username and password exist in the database
-    $stmt = $conn->prepare("SELECT * FROM login WHERE username=? AND password=?");
+    // Prepare a SQL statement to check if the username and password exist in the users table
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username=? AND password=?");
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Check if there is a row with matching username and password
+    // Check if there is a row with matching username and password in the users table
     if ($result->num_rows > 0) {
-        // Redirect to the myprojects.html page if login is successful
+        // Store the username in a session variable
+        $_SESSION['logged_in_user'] = $username;
+
+        // Redirect to the appropriate student dashboard page if login is successful
         header("Location: myprojects.html");
         exit();
     } else {
-        // If no matching username and password found, create a JavaScript function to display the error message and redirect
-        echo "<script>
-                function showError() {
-                    alert('Invalid username or password');
-                    window.location.href = 'login.html';
-                }
-                window.onload = showError;
-              </script>";
+        // If no matching username and password found in the users table, check in the projects table
+        $stmt = $conn->prepare("SELECT * FROM projects WHERE member1=? OR member2=? OR member3=? OR member4=? OR member5=?");
+        $stmt->bind_param("sssss", $username, $username, $username, $username, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if there is a row with matching username in any of the member fields in the projects table
+        if ($result->num_rows > 0) {
+            // Store the username in a session variable
+            $_SESSION['logged_in_user'] = $username;
+
+            // Redirect to the appropriate student dashboard page if login is successful
+            header("Location: myprojects.html");
+            exit();
+        } else {
+            // If no matching username found in both tables, create a JavaScript function to display the error message and redirect
+            echo "<script>
+                    function showError() {
+                        alert('Invalid username or password');
+                        window.location.href = 'login.html';
+                    }
+                    window.onload = showError;
+                  </script>";
+        }
     }
 
     // Close the statement
