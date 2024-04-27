@@ -1,2 +1,4 @@
 viewprojects.html
 viewprojects.js
+editproject.php
+deleteproject.php

@@ -63,8 +63,33 @@ document.addEventListener('DOMContentLoaded', function () {
             listItem.textContent = activity;
             activityList.appendChild(listItem);
         });
+        addProjectForm.elements['project-title'].value = project.title;
+        addProjectForm.elements['project-description'].value = project.description;
+        addProjectForm.elements['project-Startdate'].value = project.start_date;
+        
+        // Assuming you have input fields for deadline, guide, and leader
+        addProjectForm.elements['deadline'].value = project.deadline;
+        addProjectForm.elements['project-guide'].value = project.guide;
+        addProjectForm.elements['project-leader'].value = project.leader;
+    
+        // Assuming you have input fields for each member (up to 5)
+        for (let i = 1; i <= 5; i++) {
+            const memberInput = addProjectForm.elements[`member${i}`];
+            if (memberInput) {
+                memberInput.value = project[`member${i}`] || ''; // Set value or empty string if member doesn't exist
+            }
+        }
+    
+        // Pre-fill tasks
+        taskList.innerHTML = ''; // Clear previous tasks
+        project.tasks.forEach(task => {
+            const listItem = document.createElement('li');
+            listItem.textContent = task;
+            taskList.appendChild(listItem);
+        });
     }
 
+    
     // ... (Existing code for fetching project ID and data remains the same) ...
 
     const projectForm = document.querySelector('#project-form');
@@ -97,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
             taskInput.value = ''; // Clear the input field
         }
     }
-
+    
     // Add event listener for project form submission
     addProjectForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -117,6 +142,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Handle successful project creation (e.g., display success message, update project list)
         // ... (Implement logic to handle successful response from server) ...
+    });
+
+    function deleteProject(projectId) {
+        if (confirm("Are you sure you want to delete this project?")) {
+            // Send delete request to the server
+            fetch(`deleteproject.php?id=${projectId}`)
+                .then(response => response.text())
+                .then(message => {
+                    // Handle success message
+                    console.log(message);
+                    // Redirect to myprojects.html
+                    window.location.href = "myprojects.html";
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    }
+
+    // Add event listener for the "Delete Project" button
+    const deleteProjectButton = document.querySelector('#delete-project-button');
+    deleteProjectButton.addEventListener('click', function () {
+        deleteProject(projectId);
     });
 
     const generateff180 = document.getElementById("#generate-ff180");

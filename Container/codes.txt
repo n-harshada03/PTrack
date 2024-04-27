@@ -65,16 +65,16 @@ viewprojects.html
     <div class="status-node" id="project-leader"></div> 
     <div class="status-node" id="task-progress"></div> 
     <div class="status-node" id="project-progress"></div> 
-    <div class="status-node" id="member1"></div> 
-    <div class="status-node" id="member2"></div> 
+    <div class="member-grid" id="member1"></div> 
+    <div class="member-grid" id="member2"></div> 
     <div class="status-node" id="member3"></div> 
     <div class="status-node" id="member4"></div> 
     <div class="status-node" id="member5"></div> 
     
-                    <div class="status-node">Members
-                        <div id="member-list" class="member-grid">
-                            </div>
-                    </div>
+                    
+                        <!-- <div id="member-list" class="member-grid">
+                            </div> -->
+                   
                 </div>
             </div>
         </div>
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
             taskInput.value = ''; // Clear the input field
         }
     }
-
+    
     // Add event listener for project form submission
     addProjectForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -264,9 +264,91 @@ document.addEventListener('DOMContentLoaded', function () {
         // ... (Implement logic to handle successful response from server) ...
     });
 
+    function deleteProject(projectId) {
+        if (confirm("Are you sure you want to delete this project?")) {
+            // Send delete request to the server
+            fetch(`deleteproject.php?id=${projectId}`)
+                .then(response => response.text())
+                .then(message => {
+                    // Handle success message
+                    console.log(message);
+                    // Redirect to myprojects.html
+                    window.location.href = "myprojects.html";
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    }
+
+    // Add event listener for the "Delete Project" button
+    const deleteProjectButton = document.querySelector('#delete-project-button');
+    deleteProjectButton.addEventListener('click', function () {
+        deleteProject(projectId);
+    });
+
     const generateff180 = document.getElementById("#generate-ff180");
     generateff180.addEventListener("click", function() {
         window.location.href = "ff180.html";
     });
 });
+
+editproject.php
+<?php
+include 'db.php';
+
+// Assuming data is sent as JSON
+$data = json_decode(file_get_contents('php://input'), true);
+
+// Extract data from JSON
+$projectId = $data['projectId'];
+$title = $data['project-title'];
+$description = $data['project-description'];
+$startDate = $data['project-Startdate'];
+$guide = $data['project-guide'];
+$leader = $data['project-leader'];
+$progress = $data['project-progress'];
+$deadline = $data['deadline'];
+$member1 = $data['member1'];
+$member2 = $data['member2'];
+$member3 = $data['member3'];
+$member4 = $data['member4'];
+$member5 = $data['member5'];
+$tasks = json_encode($data['tasks']); // Convert tasks array to JSON string
+
+// Prepare and bind parameters for UPDATE statement
+$stmt = $conn->prepare("UPDATE projects SET title = ?, description = ?, start_date = ?, guide = ?, leader = ?, progress = ?, deadline = ?, member1 = ?, member2 = ?, member3 = ?, member4 = ?, member5 = ?, tasks = ? WHERE id = ?");
+$stmt->bind_param("sssssssssssssi", $title, $description, $startDate, $guide, $leader, $progress, $deadline, $member1, $member2, $member3, $member4, $member5, $tasks, $projectId);
+
+if ($stmt->execute()) {
+    echo json_encode(array("message" => "Project updated successfully"));
+} else {
+    echo json_encode(array("error" => "Error updating project: " . $stmt->error));
+}
+
+$stmt->close();
+$conn->close();
+?>
+
+
+deleteproject.php
+<?php
+include 'db.php';
+
+if (isset($_GET['id'])) {
+    $projectId = $_GET['id'];
+    
+    // Prepare and bind parameters for DELETE statement
+    $stmt = $conn->prepare("DELETE FROM projects WHERE id = ?");
+    $stmt->bind_param("i", $projectId);
+
+    if ($stmt->execute()) {
+        echo "Project deleted successfully";
+    } else {
+        echo "Error deleting project: " . $stmt->error;
+    }
+
+    $stmt->close();
+} 
+
+$conn->close(); 
+?>
 
